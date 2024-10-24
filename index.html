@@ -145,6 +145,9 @@
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s, transform 0.3s;
+            opacity: 0; /* Initially hide the feature boxes */
+            transform: translateY(30px); /* Initial position for the fade-in effect */
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
         }
 
         .feature-box h3 {
@@ -177,6 +180,11 @@
             transform: translateY(-5px);
         }
 
+        /* Class to apply fade-in effect */
+        .fade-in {
+            animation: fadeIn 1s forwards;
+        }
+
         /* Footer Styles */
         footer {
             background-color: #333;
@@ -191,6 +199,18 @@
 
         footer p {
             font-size: 1.1rem;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -247,28 +267,13 @@
     </section>
 
     <section id="solutions">
-        <h2>Solutions</h2>
-        <p>Our Smart Parking Management system solves the problems of limited availability, wasted space, and time-consuming searches by utilizing sensors, real-time data, and advanced navigation technology.</p>
+      <h2>Solutions</h2>
+      <p>Our Smart Parking Management system solves the problems of limited availability, wasted space, and time-consuming searches by utilizing sensors, real-time data, and advanced navigation technology.</p>
     </section>
 
     <footer id="contact">
         <h2>Contact Us</h2>
         <p>Email: valor.work@gmail.com</p>
     </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Function to open pop-up for under development message
-            const showPopup = () => {
-                alert("This feature is under development.");
-            };
-
-            // Assign to all buttons
-            const buttons = document.querySelectorAll('button');
-            buttons.forEach(button => {
-                button.addEventListener('click', showPopup);
-            });
-        });
-    </script>
 </body>
 </html>
